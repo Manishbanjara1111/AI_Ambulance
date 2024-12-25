@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI in Ambulance System</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #004aad, #0077ff);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .info-section {
+            max-width: 800px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .info-section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .image-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #fff;
+            background: #0077ff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background: #005bb5;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        footer {
+            background: #004aad;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>AI in Ambulance Systems</h1>
+    </div>
+
+    <div class="container">
+        <div class="info-section">
+            <p>
+                Revolutionizing emergency healthcare with Artificial Intelligence.
+                AI enhances response times, predicts traffic patterns, and aids paramedics in making critical decisions, ensuring faster and more efficient life-saving interventions.
+            </p>
+        </div>
+        <div class="image-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMr9ESZWmKsKEmOrUT3tEF5fiSGRPwFJI2IA&s" alt="Ambulance with AI Integration">
+        </div>
+        <div class="button-container">
+            <button id="get-started">Get Started</button>
+        </div>
+    </div>
+
+    <footer>
+        Empowering healthcare through innovation with AI.
+    </footer>
+
+    <script>
+        document.getElementById('get-started').addEventListener('click', () => {
+            window.location.href="patient.html"
+        });
+    </script>
+</body>
+</html>

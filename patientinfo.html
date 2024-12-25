@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Information</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .main-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .live-info, .history {
+            flex: 1 1 48%;
+            background: white;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .live-info h2, .history h2 {
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        .live-info p, .history ul li {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .history ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .history ul li {
+            background: #f1f3f5;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Patient Live Information</h1>
+    </div>
+
+    <div class="main-container">
+        <!-- Live Information Section -->
+        <div class="live-info">
+            <h2>Live Patient Data</h2>
+            <p><strong>Heart Rate:</strong> <span id="heart-rate">Loading...</span> bpm</p>
+            <p><strong>Blood Pressure:</strong> <span id="blood-pressure">Loading...</span></p>
+            <p><strong>Oxygen Levels:</strong> <span id="oxygen-levels">Loading...</span>%</p>
+        </div>
+
+        <!-- Patient History Section -->
+        <div class="history">
+            <h2>Patient History</h2>
+            <ul id="history-list">
+                <li>Loading history...</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2024 Ambulance AI Systems. All Rights Reserved.
+    </div>
+
+    <script>
+        // Simulating live data updates from sensors (e.g., via ESP32)
+        setInterval(() => {
+            document.getElementById('heart-rate').innerText = (60 + Math.floor(Math.random() * 40));
+            document.getElementById('blood-pressure').innerText = `${110 + Math.floor(Math.random() * 20)}/${70 + Math.floor(Math.random() * 10)}`;
+            document.getElementById('oxygen-levels').innerText = (95 + Math.floor(Math.random() * 5));
+        }, 2000);
+
+        // Simulating patient history data
+        const history = [
+            "Diagnosed with Hypertension - Jan 2022",
+            "Hospitalized for Asthma - Mar 2023",
+            "Routine Check-up - Sep 2023",
+            "Prescribed Medications for Diabetes - Dec 2023"
+        ];
+
+        const historyList = document.getElementById('history-list');
+        historyList.innerHTML = '';
+
+        history.forEach(item => {
+            const li = document.createElement('li');
+            li.innerText = item;
+            historyList.appendChild(li);
+        });
+    </script>
+</body>
+</html>

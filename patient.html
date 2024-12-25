@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      height: 100vh;
+      background-color: #ecf0f1;
+    }
+
+    /* Sidebar styling */
+    .sidebar {
+      width: 250px;
+      background-color: #2c3e50;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      padding-top: 20px;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: normal;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: white;
+      padding: 15px 20px;
+      display: block;
+      transition: background-color 0.3s ease;
+    }
+
+    .sidebar a:hover,
+    .sidebar a.active {
+      background-color: #1abc9c;
+    }
+
+    /* Main content styling */
+    .main-content {
+      flex: 1;
+      padding: 30px;
+      overflow-y: auto;
+    }
+
+    .main-content h1 {
+      color: #34495e;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .patients-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .patient-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: calc(33.333% - 20px);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .patient-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .patient-card h3 {
+      margin: 0 0 10px;
+      color: #2c3e50;
+    }
+
+    .patient-card p {
+      margin: 0;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      .patient-card {
+        width: calc(50% - 20px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .patient-card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Dashboard</h2>
+    <a href="#" class="active" onclick="showSection('patients')">Patients</a>
+    <a href="#" onclick="showSection('admin')">Admin</a>
+  </div>
+
+  <div class="main-content">
+    <div id="patients" class="section">
+      <h1>Patients in Ambulance</h1>
+      <div class="patients-container">
+        <div class="patient-card" onclick="viewPatientDetails('John Doe')">
+          <h3>John Doe</h3>
+          <p>Ambulance #1</p>
+        </div>
+        <div class="patient-card" onclick="viewPatientDetails('Jane Smith')">
+          <h3>Jane Smith</h3>
+          <p>Ambulance #2</p>
+        </div>
+        <div class="patient-card" onclick="viewPatientDetails('Michael Brown')">
+          <h3>Michael Brown</h3>
+          <p>Ambulance #3</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="admin" class="section" style="display: none;">
+      <h1>Admin Panel</h1>
+      <p>This section is under construction.</p>
+    </div>
+  </div>
+
+  <script>
+    function showSection(sectionId) {
+      // Hide all sections
+      document.querySelectorAll('.section').forEach(section => {
+        section.style.display = 'none';
+      });
+
+      // Show the selected section
+      document.getElementById(sectionId).style.display = 'block';
+
+      // Highlight the active menu
+      document.querySelectorAll('.sidebar a').forEach(link => {
+        link.classList.remove('active');
+      });
+      document.querySelector(`.sidebar a[onclick="showSection('${sectionId}')"]`).classList.add('active');
+    }
+
+    function viewPatientDetails(patientName) {
+      // Redirect to the patient info page, passing the patient's name as a URL parameter
+      window.location.href = `patientinfo.html?patient=${encodeURIComponent(patientName)}`;
+    }
+  </script>
+</body>
+</html>
